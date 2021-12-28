@@ -28,4 +28,4 @@ const Login = () => {
     );
 };
 
-export default withHead(Login, '로그인');
+export default withHead(Login, '에어 | 로그인');
