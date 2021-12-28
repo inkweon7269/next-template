@@ -3,9 +3,9 @@ import Head from 'next/head'
 import Script from "next/script";
 
 const withHead = (Component: FC, title?: string, url?: string) => {
-    const defaultTitle: string = '에어서플라이'
-    const defaultDescription: string = '에어서플라이'
-    const defaultKeywords: string = '에어서플라이'
+    const defaultTitle: string = ''
+    const defaultDescription: string = ''
+    const defaultKeywords: string = ''
     const defaultOgImage: string = ''
     const defaultOgImageWidth: string = '1200'
     const defaultOgImageHeight: string = '630'
