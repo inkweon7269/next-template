@@ -16,7 +16,9 @@ const Join = () => {
     };
 
     return (
-        <_Join onSubmit={onSubmit} />
+        <_Join
+            onSubmit={onSubmit}
+        />
     );
 };
 

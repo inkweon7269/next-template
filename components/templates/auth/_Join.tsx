@@ -6,7 +6,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import {joinSchema} from "../../../validation/schema";
 
 type IProps = {
-    onSubmit: (data: any) => void
+    onSubmit: (data: any) => void;
 }
 
 const _Join: FC<IProps> = ({onSubmit}) => {
@@ -17,7 +17,7 @@ const _Join: FC<IProps> = ({onSubmit}) => {
             gender: 'female',
             nation: ['japan'],
             isAgree1: false,
-            isAgree2: false
+            isAgree2: false,
         }
     });
 
@@ -29,7 +29,7 @@ const _Join: FC<IProps> = ({onSubmit}) => {
                 layout='vertical'
                 onFinish={handleSubmit(onSubmit)}
             >
-                <JoinWrapper/>
+                <JoinWrapper />
             </Form>
         </FormProvider>
     );

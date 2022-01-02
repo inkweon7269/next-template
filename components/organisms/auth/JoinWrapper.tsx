@@ -3,14 +3,27 @@ import styled from "styled-components";
 import TextField from "../../molecules/form/TextField";
 import ButtonField from "../../molecules/form/ButtonField";
 import {UserAddOutlined} from "@ant-design/icons";
-import {useFormContext} from "react-hook-form";
+import {useFormContext, Controller} from "react-hook-form";
 import TextAreaField from "../../molecules/form/TextAreaField";
 import SwitchField from "../../molecules/form/SwitchField";
 import RadioField from "../../molecules/form/RadioField";
 import CheckboxField from "../../molecules/form/CheckboxField";
+import SelectField from "../../molecules/form/SelectField";
+import {Select} from "antd";
+
+const { Option } = Select;
+
 
 const JoinWrapper = () => {
     const {control, watch, getValues, setValue, formState: {errors}} = useFormContext();
+
+    const onChange = (value) => {
+        console.log(`selected ${value}`);
+    }
+
+    const onSearch = (value) => {
+        console.log('search:', value);
+    }
 
     return (
         <Join>
@@ -49,7 +62,6 @@ const JoinWrapper = () => {
                 control={control}
                 label='자기소개'
                 name='intro'
-                disabled={watch('isDefault')}
             />
 
             <RadioField
@@ -89,6 +101,29 @@ const JoinWrapper = () => {
                 chkLabel='Yes'
                 unChkLabel='No'
                 name='isAgree2'
+            />
+
+            <SelectField
+                control={control}
+                name='movie1'
+                label='영화1'
+                placeholder='영화를 선택해 주세요.'
+                options={[
+                    {value: '매트릭스', label: '매트릭스'},
+                    {value: '스파이더맨', label: '스파이더맨'},
+                ]}
+            />
+
+            <SelectField
+                control={control}
+                name='movie2'
+                label='영화2'
+                showSearch={true}
+                placeholder='영화를 선택해 주세요.'
+                options={[
+                    {value: '매트릭스', label: '매트릭스'},
+                    {value: '스파이더맨', label: '스파이더맨'},
+                ]}
             />
 
             <ButtonField
