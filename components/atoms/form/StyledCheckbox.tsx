@@ -5,35 +5,32 @@ import styled from "styled-components";
 export interface IPropsCheckbox {
     field?: any;
     options?: { value: string; label: string }[];
-    value?: any;
-    onChange?: (value: any) => void;
+    text?: any;
 }
 
 const StyledCheckbox: FC<IPropsCheckbox> = (
     {
         field,
         options,
-        value,
-        onChange
+        text,
     }
 ) => {
     return (
         <>
             {
-                value && (
+                text && (
                     <_StyledCheckbox
                         {...field}
-                        onChange={(e) => {
-                            field.onChange(e);
-                        }}
+                        onChange={(e) => field.onChange(e.target.checked)}
+                        checked={field.value}
                     >
-                        {value}
+                        {text}
                     </_StyledCheckbox>
                 )
             }
             {
-                !value && (
-                    <_StyledCheckbox
+                !text && (
+                    <_StyledCheckboxGroup
                         {...field}
                         options={options}
                         onChange={(e) => {
@@ -48,6 +45,10 @@ const StyledCheckbox: FC<IPropsCheckbox> = (
 
 export default StyledCheckbox;
 
-const _StyledCheckbox = styled(AntCheckbox.Group)`
+const _StyledCheckbox = styled(AntCheckbox)`
+
+`;
+
+const _StyledCheckboxGroup = styled(AntCheckbox.Group)`
 
 `;

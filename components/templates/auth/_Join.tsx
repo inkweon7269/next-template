@@ -13,6 +13,12 @@ const _Join: FC<IProps> = ({onSubmit}) => {
 
     const formMethods = useForm({
         // resolver: yupResolver(joinSchema)
+        defaultValues: {
+            gender: 'female',
+            nation: ['japan'],
+            isAgree1: false,
+            isAgree2: false
+        }
     });
 
     const {handleSubmit} = formMethods;

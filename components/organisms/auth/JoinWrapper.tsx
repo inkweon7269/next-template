@@ -37,20 +37,19 @@ const JoinWrapper = () => {
                 errorMessage={errors.passwordConfirm?.message}
             />
 
+            <TextField
+                control={control}
+                label='나이'
+                name='age'
+                type='number'
+                errorMessage={errors.passwordConfirm?.message}
+            />
+
             <TextAreaField
                 control={control}
                 label='자기소개'
                 name='intro'
                 disabled={watch('isDefault')}
-            />
-
-            <SwitchField
-                control={control}
-                label='개인 정보 수집 동의'
-                chkLabel='Yes'
-                unChkLabel='No'
-                name='isDefault'
-                defaultValue={true}
             />
 
             <RadioField
@@ -67,7 +66,6 @@ const JoinWrapper = () => {
                         label: '여자'
                     }
                 ]}
-                defaultValue='male'
             />
 
             <CheckboxField
@@ -77,7 +75,20 @@ const JoinWrapper = () => {
                     {value: 'korea', label: '한국'},
                     {value: 'japan', label: '일본'},
                 ]}
-                defaultValue={['korea']}
+            />
+
+            <CheckboxField
+                control={control}
+                name='isAgree1'
+                text='개인 정보 수집 동의 2'
+            />
+
+            <SwitchField
+                control={control}
+                label='개인 정보 수집 동의 1'
+                chkLabel='Yes'
+                unChkLabel='No'
+                name='isAgree2'
             />
 
             <ButtonField

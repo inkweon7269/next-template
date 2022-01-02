@@ -9,7 +9,6 @@ interface IProps extends IPropsRadio {
     label?: string;
     name: string;
     errorMessage?: string;
-    defaultValue?: string;
 }
 
 const RadioField: FC<IProps> = ({
@@ -19,13 +18,11 @@ const RadioField: FC<IProps> = ({
                                     options,
                                     onChange,
                                     errorMessage,
-                                    defaultValue
                                 }) => {
     return (
         <Controller
             control={control}
             name={name}
-            defaultValue={defaultValue}
             render={({field}) => (
                 <StyledLabel label={label}>
                     <StyledRadio

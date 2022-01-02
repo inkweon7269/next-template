@@ -9,7 +9,6 @@ interface IProps extends IPropsSwitch {
     label?: string;
     name: string;
     errorMessage?: string;
-    defaultValue: boolean;
 }
 
 const SwitchField: FC<IProps> = (
@@ -20,14 +19,12 @@ const SwitchField: FC<IProps> = (
         errorMessage,
         chkLabel,
         unChkLabel,
-        defaultValue
     }
 ) => {
     return (
         <Controller
             control={control}
             name={name}
-            defaultValue={defaultValue}
             render={({field}) => (
                 <StyledLabel label={label}>
                     <StyledSwitch

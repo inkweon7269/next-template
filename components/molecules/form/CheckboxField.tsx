@@ -10,7 +10,6 @@ interface IProps extends IPropsCheckbox {
     label?: string;
     name: string;
     errorMessage?: string;
-    defaultValue?: string[];
 }
 
 const CheckboxField: FC<IProps> = ({
@@ -18,23 +17,19 @@ const CheckboxField: FC<IProps> = ({
                                        label,
                                        name,
                                        options,
-                                       value,
-                                       onChange,
+                                       text,
                                        errorMessage,
-                                       defaultValue
                                    }) => {
     return (
         <Controller
             control={control}
             name={name}
-            defaultValue={defaultValue}
             render={({field}) => (
                 <StyledLabel label={label}>
                     <StyledCheckbox
                         field={field}
-                        value={value}
+                        text={text}
                         options={options}
-                        onChange={onChange}
                     />
                     <StyledError message={errorMessage}/>
                 </StyledLabel>
