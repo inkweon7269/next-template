@@ -12,7 +12,7 @@ const LoginWrapper = () => {
         <Login>
             <TextField
                 control={control}
-                label='아이디'
+                label='이메일'
                 name='email'
                 errorMessage={errors.email?.message}
             />
