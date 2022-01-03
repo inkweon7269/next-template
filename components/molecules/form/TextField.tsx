@@ -23,7 +23,9 @@ const TextField: FC<IProps> = (
         background,
         errorMessage,
         min,
-        max
+        max,
+        width,
+        display
     }
 ) => {
     return (
@@ -40,6 +42,8 @@ const TextField: FC<IProps> = (
                         background={background}
                         min={min}
                         max={max}
+                        width={width}
+                        display={display}
                     />
                     <StyledError message={errorMessage}/>
                 </StyledLabel>

@@ -18,6 +18,7 @@ const _Join: FC<IProps> = ({onSubmit}) => {
             nation: ['japan'],
             isAgree1: false,
             isAgree2: false,
+            inputs: [{label: '항목', value: '나루토'}]
         }
     });
 

@@ -2,28 +2,22 @@ import React from 'react';
 import styled from "styled-components";
 import TextField from "../../molecules/form/TextField";
 import ButtonField from "../../molecules/form/ButtonField";
-import {UserAddOutlined} from "@ant-design/icons";
-import {useFormContext, Controller} from "react-hook-form";
+import {MinusCircleOutlined, PlusOutlined, UserAddOutlined} from "@ant-design/icons";
+import {useFormContext, useFieldArray} from "react-hook-form";
 import TextAreaField from "../../molecules/form/TextAreaField";
 import SwitchField from "../../molecules/form/SwitchField";
 import RadioField from "../../molecules/form/RadioField";
 import CheckboxField from "../../molecules/form/CheckboxField";
 import SelectField from "../../molecules/form/SelectField";
-import {Select} from "antd";
-
-const { Option } = Select;
+import {Space} from "antd";
 
 
 const JoinWrapper = () => {
     const {control, watch, getValues, setValue, formState: {errors}} = useFormContext();
-
-    const onChange = (value) => {
-        console.log(`selected ${value}`);
-    }
-
-    const onSearch = (value) => {
-        console.log('search:', value);
-    }
+    const { fields, append, remove } = useFieldArray({
+        control,
+        name: "inputs"
+    });
 
     return (
         <Join>
@@ -126,6 +120,23 @@ const JoinWrapper = () => {
                 ]}
             />
 
+            {fields.map((item, index) => (
+                <Space key={item.id} style={{ display: 'flex', marginBottom: 8 }} align="baseline">
+                    <TextField control={control} name={`inputs.${index}.label`} width='100px' display='inline-block' placeholder='항목' />
+                    <TextField control={control} name={`inputs.${index}.value`} width='100px' display='inline-block' placeholder='예시' />
+                    <MinusCircleOutlined onClick={() => remove(index)} />
+                </Space>
+            ))}
+
+            <ButtonField
+                text="항목 추가"
+                type='dashed'
+                size='large'
+                icon={<PlusOutlined/>}
+                onClick={() => append({ value: "", label: "" })}
+                block
+            />
+
             <ButtonField
                 text='회원가입'
                 type='primary'
@@ -141,6 +152,7 @@ const JoinWrapper = () => {
 export default JoinWrapper;
 
 const Join = styled.div`
-  width: 300px;
+  width: 500px;
   margin: 0 auto;
+  padding-bottom: 200px;
 `;

@@ -8,8 +8,10 @@ export interface IPropsSelect {
     field?: any;
     options: { value: string; label: string; disabled?: boolean }[];
     placeholder?: string;
-    onChange?: (value: any) => void;
     showSearch?: boolean;
+    disabled?: boolean;
+    width?: string;
+    display?: string;
 }
 
 const StyledSelect: FC<IPropsSelect> = (
@@ -18,7 +20,9 @@ const StyledSelect: FC<IPropsSelect> = (
         options,
         placeholder,
         showSearch,
-        onChange,
+        disabled,
+        width,
+        display
     }
 ) => {
     return (
@@ -33,6 +37,9 @@ const StyledSelect: FC<IPropsSelect> = (
                             option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
                         }
                         placeholder={placeholder}
+                        disabled={disabled}
+                        width={width}
+                        display={display}
                         onChange={(e) => {
                             field.onChange(e);
                         }}
@@ -50,6 +57,9 @@ const StyledSelect: FC<IPropsSelect> = (
                     <_StyleSelect
                         {...field}
                         placeholder={placeholder}
+                        disabled={disabled}
+                        width={width}
+                        display={display}
                         onChange={(e) => {
                             field.onChange(e);
                         }}

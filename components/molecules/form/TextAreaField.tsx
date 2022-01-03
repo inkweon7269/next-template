@@ -20,6 +20,8 @@ const TextAreaField:FC<IProps> = (
         disabled,
         background,
         errorMessage,
+        width,
+        display,
     }
 ) => {
     return (
@@ -32,6 +34,8 @@ const TextAreaField:FC<IProps> = (
                         field={field}
                         placeholder={placeholder}
                         disabled={disabled}
+                        width={width}
+                        display={display}
                         background={background}
                     />
                     <StyledError message={errorMessage}/>

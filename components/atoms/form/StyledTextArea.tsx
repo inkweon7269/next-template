@@ -10,6 +10,8 @@ export interface IPropsTextArea {
     placeholder?: string;
     disabled?: boolean;
     background?: string;
+    width?: string;
+    display?: string;
 }
 
 const StyledTextArea: FC<IPropsTextArea> = (
@@ -18,6 +20,8 @@ const StyledTextArea: FC<IPropsTextArea> = (
         placeholder,
         disabled,
         background,
+        width,
+        display
     }
 ) => {
     return (
@@ -25,6 +29,8 @@ const StyledTextArea: FC<IPropsTextArea> = (
             {...field}
             disabled={disabled}
             placeholder={placeholder}
+            width={width}
+            display={display}
             background={background}
         />
     );
@@ -37,15 +43,15 @@ interface _StyledTextArea extends InputProps {
 }
 
 const baseStyles = css`
-  border: solid 2px #e5e6eb;
-  border-radius: 5px;
-  padding: 16px 20px;
-  font-size: 15px;
-  width: 100%;
+  //border: solid 2px #e5e6eb;
+  //border-radius: 5px;
+  //padding: 16px 20px;
+  //font-size: 15px;
+  //width: 100%;
   resize: none;
 `;
 
 const _StyledTextArea = styled(AntTextArea)<_StyledTextArea>`
+  ${baseStyles};
   background: ${(props) => props.background || "#ffffff"};
-  ${baseStyles}
 `;
