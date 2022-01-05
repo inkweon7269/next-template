@@ -10,6 +10,7 @@ import RadioField from "../../molecules/form/RadioField";
 import CheckboxField from "../../molecules/form/CheckboxField";
 import SelectField from "../../molecules/form/SelectField";
 import {Space} from "antd";
+import DateField from "../../molecules/form/DateField";
 
 
 const JoinWrapper = () => {
@@ -135,6 +136,11 @@ const JoinWrapper = () => {
                 icon={<PlusOutlined/>}
                 onClick={() => append({ value: "", label: "" })}
                 block
+            />
+
+            <DateField
+                control={control}
+                name='date'
             />
 
             <ButtonField

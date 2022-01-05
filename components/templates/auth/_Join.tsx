@@ -4,6 +4,7 @@ import JoinWrapper from "../../organisms/auth/JoinWrapper";
 import {Form} from "antd";
 import { yupResolver } from '@hookform/resolvers/yup';
 import {joinSchema} from "../../../validation/schema";
+import moment from "moment";
 
 type IProps = {
     onSubmit: (data: any) => void;
@@ -18,7 +19,8 @@ const _Join: FC<IProps> = ({onSubmit}) => {
             nation: ['japan'],
             isAgree1: false,
             isAgree2: false,
-            inputs: [{label: '항목', value: '나루토'}]
+            inputs: [{label: '항목', value: '나루토'}],
+            date: ['1985-10-12', moment(new Date()).format('YYYY-MM-DD')]
         }
     });
 

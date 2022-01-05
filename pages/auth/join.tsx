@@ -2,17 +2,21 @@ import React from 'react';
 import _Join from "../../components/templates/auth/_Join";
 import {SubmitHandler} from "react-hook-form";
 import withHead from "../withHead";
+import moment from "moment";
 
 export interface JoinUser {
     username: string;
     password: string;
     passwordConfirm: string;
+    date: any[];
 }
 
 const Join = () => {
 
     const onSubmit: SubmitHandler<JoinUser> = async data => {
-        console.log(data);
+        const start = data.date[0];
+        const end = data.date[1];
+        console.log(start, end);
     };
 
     return (
