@@ -1,6 +1,5 @@
 import { FC } from 'react'
 import Head from 'next/head'
-import Script from "next/script";
 
 const withHead = (Component: FC, title?: string, url?: string) => {
     const defaultTitle: string = '우리집'
@@ -38,7 +37,6 @@ const withHead = (Component: FC, title?: string, url?: string) => {
                     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/moonspam/NanumBarunGothic@latest/nanumbarungothicsubset.css" />
                 </Head>
                 <Component {...props} />
-                <Script src="https://ssl.daumcdn.net/dmaps/map_js_init/postcode.v2.js" />
             </>
         )
     }

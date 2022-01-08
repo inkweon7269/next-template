@@ -14,12 +14,16 @@ import DateField from "../../molecules/form/DateField";
 import RateField from "../../molecules/form/RateField";
 
 
-const JoinWrapper = () => {
+const JoinWrapper = ({
+                         setModalVisible
+                     }) => {
+
     const {control, watch, getValues, setValue, formState: {errors}} = useFormContext();
     const {fields, append, remove} = useFieldArray({
         control,
         name: "inputs"
     });
+
 
     return (
         <Join>
@@ -149,6 +153,30 @@ const JoinWrapper = () => {
             <RateField
                 control={control}
                 name='rating'
+            />
+
+            <ButtonField
+                text='주소 검색'
+                type='primary'
+                size='large'
+                htmlType='button'
+                onClick={() => setModalVisible(true)}
+            />
+
+            <TextField
+                control={control}
+                name='postcode'
+                label='우편번호'
+            />
+            <TextField
+                control={control}
+                name='address'
+                label='주소'
+            />
+            <TextField
+                control={control}
+                name='addressDetail'
+                label='상세주소'
             />
 
             <ButtonField
