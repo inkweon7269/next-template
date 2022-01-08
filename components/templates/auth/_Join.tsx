@@ -20,7 +20,8 @@ const _Join: FC<IProps> = ({onSubmit}) => {
             isAgree1: false,
             isAgree2: false,
             inputs: [{label: '항목', value: '나루토'}],
-            date: ['1985-10-12', moment(new Date()).format('YYYY-MM-DD')]
+            date: ['1985-10-12', moment(new Date()).format('YYYY-MM-DD')],
+            rating: 2,
         }
     });
 

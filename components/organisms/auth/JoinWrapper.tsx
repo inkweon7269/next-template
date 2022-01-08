@@ -11,11 +11,12 @@ import CheckboxField from "../../molecules/form/CheckboxField";
 import SelectField from "../../molecules/form/SelectField";
 import {Space} from "antd";
 import DateField from "../../molecules/form/DateField";
+import RateField from "../../molecules/form/RateField";
 
 
 const JoinWrapper = () => {
     const {control, watch, getValues, setValue, formState: {errors}} = useFormContext();
-    const { fields, append, remove } = useFieldArray({
+    const {fields, append, remove} = useFieldArray({
         control,
         name: "inputs"
     });
@@ -122,10 +123,12 @@ const JoinWrapper = () => {
             />
 
             {fields.map((item, index) => (
-                <Space key={item.id} style={{ display: 'flex', marginBottom: 8 }} align="baseline">
-                    <TextField control={control} name={`inputs.${index}.label`} width='100px' display='inline-block' placeholder='항목' />
-                    <TextField control={control} name={`inputs.${index}.value`} width='100px' display='inline-block' placeholder='예시' />
-                    <MinusCircleOutlined onClick={() => remove(index)} />
+                <Space key={item.id} style={{display: 'flex', marginBottom: 8}} align="baseline">
+                    <TextField control={control} name={`inputs.${index}.label`} width='100px' display='inline-block'
+                               placeholder='항목'/>
+                    <TextField control={control} name={`inputs.${index}.value`} width='100px' display='inline-block'
+                               placeholder='예시'/>
+                    <MinusCircleOutlined onClick={() => remove(index)}/>
                 </Space>
             ))}
 
@@ -134,13 +137,18 @@ const JoinWrapper = () => {
                 type='dashed'
                 size='large'
                 icon={<PlusOutlined/>}
-                onClick={() => append({ value: "", label: "" })}
+                onClick={() => append({value: "", label: ""})}
                 block
             />
 
             <DateField
                 control={control}
                 name='date'
+            />
+
+            <RateField
+                control={control}
+                name='rating'
             />
 
             <ButtonField
