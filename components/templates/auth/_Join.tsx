@@ -8,7 +8,7 @@ import moment from "moment";
 
 type IProps = {
     setModalVisible: (data: any) => void;
-    daumAddress: { postcode?: string, address?: string }
+    daumAddress: { postcode?: string | any, address?: string | any }
     onSubmit: (data: any) => void;
 }
 

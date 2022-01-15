@@ -9,7 +9,7 @@ export interface LoginUser {
     password: string;
 }
 
-const loginCb = (isSuccess, data, msg) => {
+const loginCb = (isSuccess: boolean, data: any, msg: any) => {
     if (isSuccess) {
         console.log(msg);
     } else {

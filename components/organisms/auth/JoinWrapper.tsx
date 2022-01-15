@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {FC} from 'react';
 import styled from "styled-components";
 import TextField from "../../molecules/form/TextField";
 import ButtonField from "../../molecules/form/ButtonField";
@@ -13,8 +13,11 @@ import {Space} from "antd";
 import DateField from "../../molecules/form/DateField";
 import RateField from "../../molecules/form/RateField";
 
+interface JoinProps {
+    setModalVisible: (data: boolean) => void;
+}
 
-const JoinWrapper = ({
+const JoinWrapper: FC<JoinProps> = ({
                          setModalVisible
                      }) => {
 

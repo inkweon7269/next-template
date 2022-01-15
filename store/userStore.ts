@@ -3,7 +3,7 @@ import {message} from 'antd'
 import {postLogin} from "../library/user";
 import {LoginUser} from "../pages/auth/login";
 
-const login = async (data: LoginUser, callback) => {
+const login = async (data: LoginUser, callback: any) => {
     try {
         const res = await postLogin(data);
         if (res.status === 200 || res.status === 201) {
@@ -12,9 +12,10 @@ const login = async (data: LoginUser, callback) => {
 
             callback(true, null, '로그인에 성공했습니다.');
         }
-    } catch (e) {
-        // message.error(e.response.data.message);
-        callback(false, null, e.response.data.message);
+    } catch (e: unknown) {
+        if (e instanceof Error) {
+            callback(false, null, e.message);
+        }
     }
 }
 

@@ -1,8 +1,14 @@
-import React from 'react';
+import React, {FC} from 'react';
 import DaumPostcode from 'react-daum-postcode';
 import {Modal} from "antd";
 
-const DaumPostModal = ({
+interface DaumProps {
+    isModalVisible: boolean;
+    setModalVisible: (data: boolean) => void;
+    setAddress: any;
+}
+
+const DaumPostModal: FC<DaumProps> = ({
                            isModalVisible,
                            setModalVisible,
                            setAddress
